@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura en el Mundo del Código</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="has-background-light">
+
+    <main class="container">
+        <!-- Paso 1 -->
+        <div class="columns is-vcentered section" id="step1">
+            <div class="column is-half">
+                <h2 class="title is-2">El inicio del viaje</h2>
+                <p class="is-size-4">Eres un explorador que ha llegado a un mundo donde el código y la programación moldean la realidad. Frente a ti se extienden caminos llenos de desafíos y conocimientos ocultos. <br> Dime, ¿cuál es tu nombre?</p>
+                <form id="nombreExplorador">
+                    <input class="input is-primary mb-2" type="text" name="name" id="name" placeholder="Nombre" required />
+                    <button class="button is-info" type="submit">Continuar</button>
+                </form>
+            </div>
+            <div class="column is-half">
+                <img src="./Assets/1.jpg" alt="Explorador" class="image is-fullwidth">
+            </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="columns is-vcentered section is-hidden" id="step2">
+            <div class="column is-half">
+                <img src="./Assets/2.jpg" alt="Elección de camino" class="image is-fullwidth">
+            </div>
+            <div class="column is-half">
+                <h2 class="title is-2">¿Front-End o Back-End?</h2>
+                <p class="is-size-4">Bienvenido <strong><span id="nombre"></span></strong>, ¿qué camino deseas emprender en este mundo?<br>¿El <strong>Front-End</strong>, donde la interfaz y la experiencia del usuario cobran vida? ¿O el <strong>Back-End</strong>, donde la lógica y los datos construyen la base de todo?</p>
+                <button class="button is-success" onclick="elegirArea('front')">Front-End</button>
+                <button class="button is-success" onclick="elegirArea('back')">Back-End</button>
+            </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="is-hidden" id="step3">
+            <div class="columns is-vcentered section is-hidden"  id="frontEnd">
+                <div class="column is-half">
+                    <h2 class="title is-2">Front-End</h2>
+                    <p class="is-size-4">Has decidido recorrer el camino del <strong>Front-End</strong>, donde las interfaces cobran vida y el diseño se convierte en interacción. Pero ahora te encuentras ante una nueva decisión. Frente a ti hay dos portales místicos: uno resplandece con energía azul y destellos eléctricos de <strong>React</strong>, otro irradia una calma verde, donde el código fluye armonioso con <strong>Vue</strong>. 
+                    <br> Dime, ¿cuál de estos caminos deseas seguir?</p>
+                    <button class="button is-success" onclick="elegirFrontLenguaje('react')">React</button>
+                    <button class="button is-success" onclick="elegirFrontLenguaje('vue')">Vue</button>
+                </div>
+                <div class="column is-half">
+                    <img src="./Assets/2-a.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+                </div>
+            </div>
+            
+            <div class="columns is-vcentered section is-hidden" id="backEnd">
+                <div class="column is-half">
+                    <h2 class="title is-2">Back-End</h2>
+                    <p class="is-size-4">Has elegido el sendero del <strong>Back-End</strong>, donde los datos y la lógica se entrelazan para dar forma a la estructura de este mundo digital. Ante ti se alzan dos colosales estructuras: una fortaleza de metal y circuitos protegida por el emblema de <strong>C#</strong>, y una ciudad de torres de código, iluminada por el símbolo de <strong>Java</strong>.
+                    <br> ¿Cuál de estos senderos tomarás para dominar los secretos del Back-End?</p>
+                    <button class="button is-success" onclick="elegirBackLenguaje('c#')">C#</button>
+                    <button class="button is-success" onclick="elegirBackLenguaje('java')">Java</button>
+                </div>
+                <div class="column is-half">
+                    <img src="./Assets/2-b.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+                </div>
+            </div>
+
+        </div>
+        <!-- Paso 4 Front -->
+        <div class="is-hidden" id="step4Front">
+            <div class="columns is-vcentered section is-hidden"  id="react">
+                <div class="column is-half">
+                    <img src="./Assets/2-a-1.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+                </div>
+                <div class="column is-half">
+                    <h2 class="title is-2">React</h2>
+                    <p class="is-size-4">Has atravesado el portal de <strong>React</strong>, adentrándote en un reino donde los componentes son los cimientos de la creación. A tu alrededor, estructuras dinámicas se reorganizan con cada movimiento, impulsadas por un poderoso flujo de datos conocido como <strong>Virtual DOM</strong>. Aquí, la velocidad y la eficiencia son la clave para construir experiencias interactivas y fluidas. Prepárate para dominar este arte y dar vida a interfaces sorprendentes.</p>
+                    <button class="button is-link" onclick="toStep5()">Continuar</button>
+                </div>
+            </div>
+            
+            <div class="columns is-vcentered section is-hidden" id="vue">
+                <div class="column is-half">
+                    <img src="./Assets/2-a-2.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+                </div>
+                <div class="column is-half">
+                    <h2 class="title is-2">Vue</h2>
+                    <p class="is-size-4">Has elegido el sendero de <strong>Vue</strong>, un dominio donde la simplicidad y la elegancia se fusionan con el poder del código. A medida que avanzas, notas cómo el entorno se adapta con una fluidez armoniosa, permitiéndote construir con facilidad gracias a su estructura intuitiva y flexible. En este mundo, cada línea de código es como una pincelada en un lienzo digital, dándote control total sobre la reactividad y la composición. Es hora de explorar su magia.</p>
+                    <button class="button is-link" onclick="toStep5()">Continuar</button>
+                </div>
+            </div>
+        </div>
+        <!-- Paso 4 Back -->
+        <div class="is-hidden" id="step4Back">
+            <div class="columns is-vcentered section is-hidden"  id="c#">
+                <div class="column is-half">
+                    <img src="./Assets/2-b-1.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+                </div>
+                <div class="column is-half">
+                    <h2 class="title is-2">C#</h2>
+                    <p class="is-size-4">Has ingresado a la fortaleza de <strong>C#</strong>, un bastión de poder donde la robustez y la estructura son fundamentales. A tu alrededor, arquitecturas sólidas y ordenadas se erigen con precisión, diseñadas para soportar sistemas complejos y eficientes. En este mundo, la programación orientada a objetos es el lenguaje de los grandes constructores, y con ella, podrás levantar imperios de código con una base inquebrantable. Prepárate para forjar tu camino.</p>
+                    <button class="button is-link" onclick="toStep5()">Continuar</button>
+                </div>
+            </div>
+            
+            <div class="columns is-vcentered section is-hidden" id="java">
+                <div class="column is-half">
+                    <img src="./Assets/2-b-2.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+                </div>
+                <div class="column is-half">
+                    <h2 class="title is-2">Java</h2>
+                    <p class="is-size-4">Te adentras en la metrópolis de <strong>Java</strong>, un mundo donde la versatilidad y la estabilidad rigen la creación. Gigantescas torres de código se elevan hasta el cielo, interconectadas por redes de servidores que mantienen en funcionamiento innumerables sistemas. Aquí, la interoperabilidad es ley, permitiéndote construir soluciones escalables que trascienden plataformas y dispositivos. Si dominas este camino, podrás ser el arquitecto de sistemas globales.</p>
+                    <button class="button is-link" onclick="toStep5()">Continuar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paso 5 eleccion full stack -->
+        <div class="columns is-vcentered section is-hidden"  id="step5">
+            <div class="column is-half">
+                <h2 class="title is-2">Un futuro por elegir</h2>
+                <p class="is-size-4">Has adquirido conocimientos valiosos en tu travesía, pero ahora enfrentas una decisión crucial.<br>¿Te dedicarás a perfeccionar tus habilidades en el camino que elegiste, profundizando en sus secretos y convirtiéndote en un maestro? ¿O desafiarás los límites y te aventurarás en el vasto mundo del Fullstack, dominando tanto el Front-End como el Back-End?<br>La elección es tuya.</p>
+                <button class="button is-success" onclick="continuarEstudio('especializacion')">Especializacion</button>
+                <button class="button is-success" onclick="continuarEstudio('fullStack')">FullStack</button>
+            </div>
+            <div class="column is-half">
+                <img src="./Assets/2-b-1.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+            </div>
+        </div>
+
+        <!-- Paso 6 especializacion y fullstack -->
+        <div class="is-hidden" id="step6">
+            <div class="columns is-vcentered section is-hidden"  id="especializacion">
+                <div class="column is-half">
+                    <img src="./Assets/6-a.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+                </div>
+                <div class="column is-half">
+                    <h2 class="title is-2">Especializacion</h2>
+                    <p class="is-size-4">Has decidido <strong>perfeccionar</strong> tu dominio en el camino que elegiste. En este sendero, te adentrarás en los misterios más profundos de tu área, afinando tus habilidades hasta convertirte en un maestro. Cada desafío será una oportunidad para innovar, cada línea de código un paso hacia la excelencia. Prepárate para pulir tu conocimiento y alcanzar la grandeza en tu especialidad.</p>
+                    <button class="button is-link" onclick="toStep7()">Continuar</button>
+                </div>
+            </div>
+            
+            <div class="columns is-vcentered section is-hidden" id="fullStack">
+                <div class="column is-half">
+                    <img src="./Assets/6-b.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+                </div>
+                <div class="column is-half">
+                    <h2 class="title is-2">Fullstack</h2>
+                    <p class="is-size-4">Has elegido el camino del <strong>Fullstack</strong>, un desafío reservado para aquellos que buscan dominar ambos mundos. Como un explorador versátil, navegarás entre la lógica del Back-End y la creatividad del Front-End, construyendo sistemas completos con tu conocimiento. No hay límites en tu travesía: donde otros ven fronteras, tú verás oportunidades. Es hora de equilibrar ambas fuerzas y convertirte en un arquitecto del código.</p>
+                    <button class="button is-link" onclick="toStep7()">Continuar</button>
+                </div>
+            </div>
+        </div>
+        <!-- 
+        <div class="is-hidden" id="step6">
+            <div class="columns is-vcentered section is-hidden"  id="especializacion">
+                <div class="column is-half">
+                    <h2 class="title is-2">Especializacion</h2>
+                    <p class="is-size-4">Has decidido <strong>perfeccionar</strong> tu dominio en el camino que elegiste. En este sendero, te adentrarás en los misterios más profundos de tu área, afinando tus habilidades hasta convertirte en un maestro. Cada desafío será una oportunidad para innovar, cada línea de código un paso hacia la excelencia. Prepárate para pulir tu conocimiento y alcanzar la grandeza en tu especialidad.</p>
+                    <button class="button is-link" onclick="toStep7()">Continuar</button>
+                </div>
+                <div class="column is-half">
+                    <img src="./Assets/6-a.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+                </div>
+            </div>
+            
+            <div class="columns is-vcentered section is-hidden" id="fullStack">
+                <div class="column is-half">
+                    <h2 class="title is-2">Fullstack</h2>
+                    <p class="is-size-4">Has elegido el camino del <strong>Fullstack</strong>, un desafío reservado para aquellos que buscan dominar ambos mundos. Como un explorador versátil, navegarás entre la lógica del Back-End y la creatividad del Front-End, construyendo sistemas completos con tu conocimiento. No hay límites en tu travesía: donde otros ven fronteras, tú verás oportunidades. Es hora de equilibrar ambas fuerzas y convertirte en un arquitecto del código.</p>
+                    <button class="button is-link" onclick="toStep7()">Continuar</button>
+                </div>
+                <div class="column is-half">
+                    <img src="./Assets/6-b.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Paso 7 eleccion de nuevas tecnologias -->
+        <div class="columns is-vcentered section is-hidden"  id="step7">
+            <div class="column is-half">
+                <h2 class="title is-2">El conocimiento infinito</h2>
+                <p class="is-size-4">A medida que avanzas en tu viaje por este mundo de código, descubres que hay aún más caminos por explorar. Frente a ti se abren puertas hacia nuevas herramientas y lenguajes, cada uno con su propio poder y propósito.
+                <br>¿Deseas aventurarte más allá de tu elección inicial y aprender nuevas tecnologías, ampliando tus habilidades? O tal vez prefieres afianzar tu dominio en lo que ya has aprendido. La decisión es tuya, explorador del código.</p>
+                <form id="eligiendoTecnologias">
+                    <input class="input is-primary mb-2" type="text" name="nuevasTecnologias" id="nuevasTecnologias" placeholder="Agrega nueva Tecnologia"/>
+                    <button class="button is-info" type="submit">Agregar Tecnologia</button>
+                </form>
+               <button class="button is-success" onclick="finalizarTravesia()">Continuar</button>
+            </div>
+            <div class="column is-half">
+                <img src="./Assets/7.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+            </div>
+        </div>
+
+         <!-- Paso 8 Camino definido o Nuevos Caminos? -->
+        <div class="is-hidden" id="step8">
+            <div class="columns is-vcentered section is-hidden"  id="caminoDefinido">
+                <div class="column is-half">
+                    <img src="./Assets/7-a.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+                </div>
+                <div class="column is-half">
+                    <h2 class="title is-2">Un Camino Definido</h2>
+                    <p class="is-size-4">Tu travesía en este mundo del código ha llegado a un punto de descanso. Has trazado un camino claro, fortaleciéndote en tu especialidad y dominando las herramientas que te llevarán lejos. Aunque este viaje nunca termina realmente, por ahora, has encontrado tu senda y estás listo para construir grandes proyectos. El conocimiento que adquiriste será la base de todo lo que está por venir. ¡Que tu código siempre compile sin errores y tus ideas se transformen en innovación!</p>
+                    <button class="button is-link" onclick="theEnd()">Finalizar</button>
+                </div>
+            </div>
+            
+            <div class="columns is-vcentered section is-hidden" id="agregandoNuevasTecnologias">
+                <div class="column is-half">
+                    <img src="./Assets/7-b.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+                </div>
+                <div class="column is-half">
+                    <h2 class="title is-2">Explorador del Conocimiento</h2>
+                    <p class="is-size-4">Veo que tu espíritu explorador no se detiene. Has decidido aventurarte aún más en este vasto mundo del código, descubriendo nuevas herramientas y tecnologías como <span id="tecnologiasElegidas"></span> ampliarán tu horizonte. Cada nueva elección te convertirá en un desarrollador más versátil y poderoso. No hay límites para lo que podés aprender y construir. ¡Sigue adelante, porque el universo de la programación está en constante expansión, y ahora formas parte de él!</p>
+                    <button class="button is-link" onclick="theEnd()">Finalizar</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- final del recorrido -->
+        <div class="columns is-vcentered section is-hidden"  id="step9">
+            <div class="column is-half">
+                <h2 class="title is-2">El Aprendizaje Nunca Termina</h2>
+                <p class="is-size-4">Has llegado al umbral del infinito. Frente a ti, un universo sin límites se despliega, repleto de puertas que conducen a nuevos conocimientos, desafíos y oportunidades. Cada elección que hagas abrirá un sendero único, cada tecnología dominada será una llave hacia horizontes inexplorados. En este mundo del código, el aprendizaje nunca termina, y tú eres el arquitecto de tu propia aventura. Sigue explorando, sigue creando, sigue creciendo… porque el viaje apenas comienza.</p>
+            </div>
+            <div class="column is-half">
+                <img src="./Assets/9.jpg" alt="Decisión de Framework" class="image is-fullwidth">
+            </div>
+        </div>
+    </main>
+
+    
+
+    <script src="app.js"></script>
+</body>
+</html>
